@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Landmarks Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="floating-particles"></div>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1><i class="fas fa-globe-americas"></i> World Landmarks Explorer</h1>
+                    <div class="subtitle">
+                        <span class="highlight">Discover</span> the most <span class="highlight">famous places</span> on Earth
+                    </div>
+                </div>
+                <div class="header-decoration">
+                    <div class="compass">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="controls">
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="Search landmarks, cities, or countries...">
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-container">
+                    <i class="fas fa-filter filter-icon"></i>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="monuments">Monuments</option>
+                        <option value="natural">Natural</option>
+                        <option value="religious">Religious</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="modern">Modern</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn random-btn" title="Random Landmark (R)">
+                    <i class="fas fa-dice"></i>
+                    <span>Random</span>
+                </button>
+                <button class="action-btn location-btn" title="My Location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>My Location</span>
+                </button>
+                <button class="action-btn export-btn" title="Export Data (E)">
+                    <i class="fas fa-download"></i>
+                    <span>Export</span>
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stats-content">
+                    <i class="fas fa-map-pin"></i>
+                    <span id="landmarkCount">0 landmarks</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <div class="zoom-controls">
+                    <button class="zoom-btn" onclick="map.zoomIn()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="zoom-btn" onclick="map.zoomOut()">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="landmarks-section">
+            <div class="section-header">
+                <h3><i class="fas fa-list"></i> Landmarks Collection</h3>
+                <div class="view-toggle">
+                    <button class="toggle-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="toggle-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="landmarks-list" id="landmarksList">
+                <div id="landmarksContainer"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="landmarks.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
